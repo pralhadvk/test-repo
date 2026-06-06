@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "39e12834ee815759",
+    "type": "split",
+    "children": [
+      {
+        "id": "8abf1ff4b15d7fd3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7023cf6588c632e",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "27ee846f875cf031",
+    "type": "split",
+    "children": [
+      {
+        "id": "50f4916fa42a1b2e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cb169bc0dd417443",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "274931f86c936032",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "1f80a31479312af5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4e8c2b2c7f09ae05",
+    "type": "split",
+    "children": [
+      {
+        "id": "8120eb78db8e17b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e2c7022d11a2c2dc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "a2080e13f3a1d88a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "d689f7b1268c78b6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "3cfbb5e1eeb1b63d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "a1810aaac97a018b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "templater-obsidian:Templater": false,
+      "terminal:Open terminal": false
+    }
+  },
+  "active": "c7023cf6588c632e",
+  "lastOpenFiles": [
+    "04 - Phase 4 Defensibility/4.4 Analytics Dashboard.md",
+    "04 - Phase 4 Defensibility/4.4 Analytics Dashboard.md.tmp.7570.345fd46dd470",
+    "04 - Phase 4 Defensibility/4.3 Curated Verticals.md",
+    "04 - Phase 4 Defensibility/4.3 Curated Verticals.md.tmp.7570.9960debc40e3",
+    "04 - Phase 4 Defensibility/4.2 Public API.md",
+    "04 - Phase 4 Defensibility/4.2 Public API.md.tmp.7570.17c7bed6c24e",
+    "04 - Phase 4 Defensibility/4.1 Browser Extension.md",
+    "04 - Phase 4 Defensibility/4.1 Browser Extension.md.tmp.7570.2c484e77a740",
+    "04 - Phase 4 Defensibility/Overview.md",
+    "04 - Phase 4 Defensibility/Overview.md.tmp.7570.9782eddfbd8c",
+    "03 - Phase 3 Monetization/3.3 Pro Tier.md",
+    "03 - Phase 3 Monetization/3.3 Pro Tier.md.tmp.7570.4d3c46439f33",
+    "03 - Phase 3 Monetization/3.2 Affiliate Links.md",
+    "03 - Phase 3 Monetization/3.2 Affiliate Links.md.tmp.7570.f8202008e223",
+    "03 - Phase 3 Monetization/3.1 Category Modes.md",
+    "03 - Phase 3 Monetization/3.1 Category Modes.md.tmp.7570.2927b616cc09",
+    "03 - Phase 3 Monetization/Overview.md",
+    "03 - Phase 3 Monetization/Overview.md.tmp.7570.87939de1d12b",
+    "02 - Phase 2 Virality/2.3 Collections.md",
+    "02 - Phase 2 Virality/2.3 Collections.md.tmp.7570.23a81db1412b",
+    "02 - Phase 2 Virality/2.2 Trending Searches.md",
+    "02 - Phase 2 Virality/2.1 Shareable Result Pages.md",
+    "02 - Phase 2 Virality/Overview.md",
+    "01 - Phase 1 Foundation/1.3 Search History Dashboard.md",
+    "01 - Phase 1 Foundation/1.2 Auth with Clerk.md",
+    "01 - Phase 1 Foundation/1.1 Database Schema.md",
+    "01 - Phase 1 Foundation/Overview.md",
+    "00 - Meta/Architecture.md",
+    "00 - Meta/YC Checklist.md",
+    "00 - Meta/3C Search.md",
+    "log.md",
+    "index.md",
+    "CLAUDE.md"
+  ]
+}
