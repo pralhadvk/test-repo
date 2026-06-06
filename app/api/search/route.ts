@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth, currentUser } from "@clerk/nextjs/server";
 import { createHash } from "crypto";
 import { nanoid } from "nanoid";
 import pool from "@/lib/db";
@@ -45,12 +44,10 @@ export async function POST(req: NextRequest) {
     );
     if (hit.rows.length > 0) {
       const payload = hit.rows[0].result_json as { result: string; results: Result[] };
-      await persistSearch(query, category, payload.results);
+      void persistSearch(query, category, payload.results);
       return NextResponse.json({ ...payload, cached: true });
     }
-  } catch {
-    // cache failure is non-fatal
-  }
+  } catch { /* non-fatal */ }
 
   // ── 2. Call OpenRouter ──────────────────────────────────────────────────────
   const systemPrompt = (category && CATEGORY_PROMPTS[category]) || "You are a top 3 recommendation engine.";
@@ -80,17 +77,14 @@ Return ONLY the top 3 results using this exact format:
   const data = await response.json();
 
   if (!response.ok) {
-    return NextResponse.json(
-      { error: data.error?.message || "OpenRouter error" },
-      { status: 502 }
-    );
+    return NextResponse.json({ error: data.error?.message || "OpenRouter error" }, { status: 502 });
   }
 
   const text: string = data.choices?.[0]?.message?.content ?? "No results found.";
   const results = parseResults(text);
   const payload = { result: text, results };
 
-  // ── 3. Write to cache ───────────────────────────────────────────────────────
+  // ── 3. Write cache ──────────────────────────────────────────────────────────
   try {
     await pool.query(
       `INSERT INTO cache (query_hash, result_json, expires_at)
@@ -99,47 +93,22 @@ Return ONLY the top 3 results using this exact format:
        DO UPDATE SET result_json = $2, expires_at = NOW() + INTERVAL '24 hours'`,
       [queryHash, payload]
     );
-  } catch {
-    // non-fatal
-  }
+  } catch { /* non-fatal */ }
 
-  // ── 4. Persist search history ───────────────────────────────────────────────
-  await persistSearch(query, category, results);
+  // ── 4. Save history ─────────────────────────────────────────────────────────
+  void persistSearch(query, category, results);
 
   return NextResponse.json({ ...payload, cached: false });
 }
 
 async function persistSearch(query: string, category: string | undefined, results: Result[]) {
   try {
-    const { userId } = await auth();
-    let dbUserId: string | null = null;
-
-    if (userId) {
-      const clerk = await currentUser();
-      if (clerk) {
-        await pool.query(
-          `INSERT INTO users (clerk_id, email, name)
-           VALUES ($1, $2, $3)
-           ON CONFLICT (clerk_id) DO UPDATE SET email = $2, name = COALESCE($3, users.name)`,
-          [
-            userId,
-            clerk.emailAddresses[0]?.emailAddress ?? "",
-            clerk.fullName ?? null,
-          ]
-        );
-      }
-      const ur = await pool.query("SELECT id FROM users WHERE clerk_id = $1", [userId]);
-      dbUserId = ur.rows[0]?.id ?? null;
-    }
-
     const slug = nanoid(8);
-    const sr = await pool.query(
-      `INSERT INTO searches (user_id, query, category, slug)
-       VALUES ($1, $2, $3, $4) RETURNING id`,
-      [dbUserId, query, category ?? null, slug]
+    const { rows } = await pool.query(
+      `INSERT INTO searches (user_id, query, category, slug) VALUES (NULL, $1, $2, $3) RETURNING id`,
+      [query, category ?? null, slug]
     );
-    const searchId: string = sr.rows[0].id;
-
+    const searchId: string = rows[0].id;
     for (const r of results) {
       await pool.query(
         `INSERT INTO search_results (search_id, rank, name, description) VALUES ($1, $2, $3, $4)`,

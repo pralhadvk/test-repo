@@ -1,11 +1,5 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+// Auth middleware — placeholder until Clerk keys are added
+// Dashboard is currently open; will be protected once Clerk is wired up
+export default function middleware() {}
 
-const isProtected = createRouteMatcher(["/dashboard(.*)"]);
-
-export default clerkMiddleware(async (auth, req) => {
-  if (isProtected(req)) await auth.protect();
-});
-
-export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
-};
+export const config = { matcher: [] };
