@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, KeyboardEvent } from "react";
+import { useState, useRef, KeyboardEvent, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
 type Result = { rank: number; name: string; description: string };
 
@@ -34,7 +35,8 @@ const RANK_STYLES = [
   { badge: "from-orange-400 to-amber-600", border: "hover:border-orange-500/40", glow: "hover:shadow-orange-500/10" },
 ];
 
-export default function Home() {
+function HomeInner() {
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Result[]>([]);
   const [rawText, setRawText] = useState("");
@@ -43,6 +45,13 @@ export default function Home() {
   const [searched, setSearched] = useState(false);
   const [lastQuery, setLastQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Auto-search on ?q= param (replay from dashboard)
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) search(q);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function search(q?: string) {
     const searchQuery = (q ?? query).trim();
@@ -223,5 +232,13 @@ export default function Home() {
 
       <p className="mt-20 text-slate-700 text-xs tracking-widest uppercase">3C Search</p>
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense>
+      <HomeInner />
+    </Suspense>
   );
 }

@@ -18,6 +18,18 @@ Parse last 10 entries: `grep "^## \[" log.md | tail -10`
 
 ---
 
+## [2026-06-06] build | Phase 1 complete — Foundation shipped
+
+- **1.1 DB Schema**: `users`, `searches`, `search_results`, `cache` tables live in Neon
+- **1.2 Auth**: `@clerk/nextjs` installed, middleware, `/sign-in`, `/sign-up`, navbar with UserButton
+- **1.3 Dashboard**: `/dashboard` server component with stats + history cards + replay
+- **Cache layer**: 24h MD5-hashed query cache in Neon, zero API calls on cache hits
+- **History saving**: All searches persisted (user_id if logged in, null if anonymous for trending)
+- **Category prompts**: Food, Travel, Tech, Finance, Entertainment system prompts live
+- **Status**: Built and deployed. Auth activates once Clerk keys are added to Vercel.
+
+---
+
 ## [2026-06-06] build | Next.js app deployed to Vercel
 
 - Converted preview.html → Next.js 14 + Tailwind app
