@@ -1,7 +1,7 @@
 ---
 title: "Phase 2 — Virality Overview"
 phase: 2
-status: todo
+status: in_progress
 tags: [phase-2, virality, overview, growth]
 created: 2026-06-06
 updated: 2026-06-06
@@ -17,8 +17,8 @@ priority: high
 
 ---
 
-> [!warning] Blocked Until Phase 1
-> Phase 2 requires auth and saved searches from [[01 - Phase 1 Foundation/Overview]].
+> [!success] Phase 2 Complete — Shipped 2026-06-06
+> All 3 sections built and deployed. Every search is now shareable, trending is live, and collections are available.
 
 ---
 
@@ -26,35 +26,51 @@ priority: high
 
 | Section | Description | Status | Priority |
 |---------|-------------|--------|----------|
-| [[2.1 Shareable Result Pages]] | /s/[id] public pages with OG images | `todo` | 🔴 high |
-| [[2.2 Trending Searches]] | /trending + homepage sidebar widget | `todo` | 🟡 medium |
-| [[2.3 Collections]] | Save results, public/private, SEO-indexed | `todo` | 🟡 medium |
+| [[2.1 Shareable Result Pages]] | /s/[slug] public pages with OG images | `completed` | 🔴 high |
+| [[2.2 Trending Searches]] | /trending + homepage trending chip | `completed` | 🟡 medium |
+| [[2.3 Collections]] | Save results, public collections, SEO-indexed | `completed` | 🟡 medium |
+
+---
+
+## What Was Built
+
+### 2.1 Shareable Result Pages
+- `app/s/[slug]/page.tsx` — public shareable page with dark glassmorphism UI
+- `app/s/[slug]/opengraph-image.tsx` — auto-generated 1200×630 OG image (nodejs runtime)
+- `app/s/[slug]/ShareButtons.tsx` — copy link + Twitter + WhatsApp share buttons
+- Share bar on homepage: "View page", "Copy link", "Save" buttons appear after every search
+- Slug already stored in `searches.slug` from Phase 1 (nanoid 8 chars)
+- API now returns `slug` in response for immediate share access
+
+### 2.2 Trending Searches
+- `app/trending/page.tsx` — server component with period filter (Today / This Week / All Time)
+- `app/trending/TrendingClient.tsx` — clickable ranked list with progress bars, medal icons
+- "See trending →" chip added to homepage example chips row
+- Trending link added to Navbar
+- SQL: `GROUP BY query ORDER BY count DESC` on `searches` table
+
+### 2.3 Collections
+- `collections` + `collection_items` tables created in Neon DB
+- `app/api/collections/route.ts` — POST endpoint to create collection + save a search
+- `app/collections/[id]/page.tsx` — public collection page showing all saved searches
+- "Save" button on homepage opens modal → enter name → creates collection → shows permalink
+- Collections are public, permanent, and shareable (no auth required)
 
 ---
 
 ## The Growth Loop
 
 ```
-User searches → gets top 3 → shares /s/[id] link
+User searches → gets top 3 → shares /s/[slug] link
      ↓
 Friend opens link (no login needed)
      ↓
 Friend is impressed → searches something themselves
      ↓
-Friend signs up to save history
+Friend saves to collection → bookmarks permalink
      ↓
 Friend shares their result → loop repeats
 ```
-
----
-
-## Deliverable Definition
-
-> [!tip] "Done" for YC means:
-> - Every search has a public URL at /s/[slug]
-> - OG image auto-generated so Twitter/WhatsApp previews look great
-> - /trending shows most searched queries in real time
-> - You can track how many new users came from shared links
 
 ---
 

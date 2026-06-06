@@ -44,8 +44,8 @@ export async function POST(req: NextRequest) {
     );
     if (hit.rows.length > 0) {
       const payload = hit.rows[0].result_json as { result: string; results: Result[] };
-      void persistSearch(query, category, payload.results);
-      return NextResponse.json({ ...payload, cached: true });
+      const slug = await persistSearch(query, category, payload.results);
+      return NextResponse.json({ ...payload, cached: true, slug });
     }
   } catch { /* non-fatal */ }
 
@@ -95,13 +95,13 @@ Return ONLY the top 3 results using this exact format:
     );
   } catch { /* non-fatal */ }
 
-  // ── 4. Save history ─────────────────────────────────────────────────────────
-  void persistSearch(query, category, results);
+  // ── 4. Save history and return slug ─────────────────────────────────────────
+  const slug = await persistSearch(query, category, results);
 
-  return NextResponse.json({ ...payload, cached: false });
+  return NextResponse.json({ ...payload, cached: false, slug });
 }
 
-async function persistSearch(query: string, category: string | undefined, results: Result[]) {
+async function persistSearch(query: string, category: string | undefined, results: Result[]): Promise<string | null> {
   try {
     const slug = nanoid(8);
     const { rows } = await pool.query(
@@ -115,7 +115,9 @@ async function persistSearch(query: string, category: string | undefined, result
         [searchId, r.rank, r.name, r.description]
       );
     }
+    return slug;
   } catch (err) {
     console.error("persistSearch failed:", err);
+    return null;
   }
 }

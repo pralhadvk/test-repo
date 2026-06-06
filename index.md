@@ -49,10 +49,10 @@ SORT phase ASC
 
 | Page | Status | Priority |
 |------|--------|----------|
-| [[02 - Phase 2 Virality/Overview]] | `todo` | — |
-| [[02 - Phase 2 Virality/2.1 Shareable Result Pages]] | `todo` | high |
-| [[02 - Phase 2 Virality/2.2 Trending Searches]] | `todo` | medium |
-| [[02 - Phase 2 Virality/2.3 Collections]] | `todo` | medium |
+| [[02 - Phase 2 Virality/Overview]] | `in_progress` | — |
+| [[02 - Phase 2 Virality/2.1 Shareable Result Pages]] | `completed` | high |
+| [[02 - Phase 2 Virality/2.2 Trending Searches]] | `completed` | medium |
+| [[02 - Phase 2 Virality/2.3 Collections]] | `completed` | medium |
 
 ---
 

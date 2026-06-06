@@ -18,6 +18,16 @@ Parse last 10 entries: `grep "^## \[" log.md | tail -10`
 
 ---
 
+## [2026-06-06] build | Phase 2 complete — Virality shipped
+
+- **2.1 Shareable Result Pages**: Every search has a public `/s/[slug]` page with OG image (1200×630), Twitter + WhatsApp share buttons, clipboard copy. API now returns `slug` on every response.
+- **2.2 Trending Searches**: `/trending` page with Today/This Week/All Time tabs, animated ranked list. "See trending →" chip on homepage. Navbar updated.
+- **2.3 Collections**: `collections` + `collection_items` tables in Neon. POST `/api/collections`, `/collections/[id]` public page. "Save" button on homepage opens name-entry modal → creates permalink.
+- 17 Phase 2 tasks marked `completed` in Neon DB (version_1)
+- Vault notes updated: Overview, 2.1, 2.2, 2.3, index.md
+
+---
+
 ## [2026-06-06] build | Phase 1 progress dashboard synced
 
 - Updated 14 task statuses in Neon DB (version_1) to reflect actual build state
