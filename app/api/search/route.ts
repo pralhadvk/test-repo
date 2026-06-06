@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
+    return NextResponse.json({ error: "API key not configured" }, { status: 500 });
   }
 
   const prompt = `You are a top 3 recommendation engine.
@@ -24,7 +24,7 @@ Rules:
 2. **Name** — description
 3. **Name** — description`;
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
