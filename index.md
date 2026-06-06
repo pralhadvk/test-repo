@@ -38,10 +38,10 @@ SORT phase ASC
 
 | Page | Status | Priority |
 |------|--------|----------|
-| [[01 - Phase 1 Foundation/Overview]] | `todo` | — |
-| [[01 - Phase 1 Foundation/1.1 Database Schema]] | `todo` | high |
-| [[01 - Phase 1 Foundation/1.2 Auth with Clerk]] | `todo` | high |
-| [[01 - Phase 1 Foundation/1.3 Search History Dashboard]] | `todo` | high |
+| [[01 - Phase 1 Foundation/Overview]] | `in_progress` | — |
+| [[01 - Phase 1 Foundation/1.1 Database Schema]] | `completed` | high |
+| [[01 - Phase 1 Foundation/1.2 Auth with Clerk]] | `in_progress` | high |
+| [[01 - Phase 1 Foundation/1.3 Search History Dashboard]] | `completed` | high |
 
 ---
 

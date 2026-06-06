@@ -180,6 +180,8 @@
   },
   "active": "c7023cf6588c632e",
   "lastOpenFiles": [
+    "log.md.tmp.7570.b3781723e1e8",
+    "index.md.tmp.7570.f3371c6ccf1e",
     "app/dashboard/DashboardClient.tsx.tmp.7570.3559f982fbc2",
     "app/dashboard/page.tsx.tmp.7570.51a532e995b6",
     "app/api/search/route.ts.tmp.7570.a2bd2a10a6c0",
@@ -189,8 +191,6 @@
     "log.md.tmp.7570.117b27f0f836",
     "01 - Phase 1 Foundation/1.3 Search History Dashboard.md.tmp.7570.f0ded2227cd0",
     "01 - Phase 1 Foundation/1.3 Search History Dashboard.md.tmp.7570.313c917e7c85",
-    "01 - Phase 1 Foundation/1.2 Auth with Clerk.md.tmp.7570.c70f09538c77",
-    "01 - Phase 1 Foundation/1.2 Auth with Clerk.md.tmp.7570.706828883ffc",
     "node_modules/react-is/README.md",
     "node_modules/@clerk/shared/README.md",
     "node_modules/@clerk/nextjs/README.md",

@@ -18,6 +18,15 @@ Parse last 10 entries: `grep "^## \[" log.md | tail -10`
 
 ---
 
+## [2026-06-06] build | Phase 1 progress dashboard synced
+
+- Updated 14 task statuses in Neon DB (version_1) to reflect actual build state
+- 1.1 DB Schema: 4/4 completed
+- 1.2 Auth: 3/5 completed, 1 in_progress (user sync), 1 todo (Clerk providers)
+- 1.3 Dashboard: 5/5 completed
+
+---
+
 ## [2026-06-06] build | Phase 1 complete — Foundation shipped
 
 - **1.1 DB Schema**: `users`, `searches`, `search_results`, `cache` tables live in Neon
