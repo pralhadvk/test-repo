@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3C Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">3C <span class="accent">Search</span></div>
+      <a href="https://test-repo-seven-lyart.vercel.app" target="_blank" class="open-link" title="Open full app">↗</a>
+    </div>
+
+    <!-- Category selector -->
+    <div class="categories" id="categories">
+      <button class="cat-btn active" data-cat="">All</button>
+      <button class="cat-btn" data-cat="food">🍕</button>
+      <button class="cat-btn" data-cat="travel">✈️</button>
+      <button class="cat-btn" data-cat="tech">💻</button>
+      <button class="cat-btn" data-cat="finance">💰</button>
+      <button class="cat-btn" data-cat="entertainment">🎬</button>
+    </div>
+
+    <!-- Search input -->
+    <div class="search-row">
+      <input type="text" id="query" placeholder="Search anything…" autofocus />
+      <button id="searchBtn">Go</button>
+    </div>
+
+    <!-- Status / Results -->
+    <div id="status"></div>
+    <div id="results"></div>
+
+    <!-- Recent searches -->
+    <div id="recentSection">
+      <div class="section-label">Recent</div>
+      <div id="recent"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

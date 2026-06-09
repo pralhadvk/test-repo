@@ -71,11 +71,11 @@ SORT phase ASC
 
 | Page | Status | Priority |
 |------|--------|----------|
-| [[04 - Phase 4 Defensibility/Overview]] | `todo` | — |
-| [[04 - Phase 4 Defensibility/4.1 Browser Extension]] | `todo` | high |
-| [[04 - Phase 4 Defensibility/4.2 Public API]] | `todo` | medium |
-| [[04 - Phase 4 Defensibility/4.3 Curated Verticals]] | `todo` | high |
-| [[04 - Phase 4 Defensibility/4.4 Analytics Dashboard]] | `todo` | medium |
+| [[04 - Phase 4 Defensibility/Overview]] | `in_progress` | — |
+| [[04 - Phase 4 Defensibility/4.1 Browser Extension]] | `completed` | high |
+| [[04 - Phase 4 Defensibility/4.2 Public API]] | `completed` | medium |
+| [[04 - Phase 4 Defensibility/4.3 Curated Verticals]] | `completed` | high |
+| [[04 - Phase 4 Defensibility/4.4 Analytics Dashboard]] | `completed` | medium |
 
 ---
 

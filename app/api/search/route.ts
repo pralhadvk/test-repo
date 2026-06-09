@@ -44,8 +44,23 @@ export async function POST(req: NextRequest) {
 
   const limit = pro === true ? 5 : 3;
 
-  // ── 1. Cache check ──────────────────────────────────────────────────────────
-  const cacheKey = `${query.toLowerCase().trim()}__${limit}`;
+  const normalizedQuery = query.toLowerCase().trim();
+
+  // ── 1. Curated results check (data moat) ────────────────────────────────────
+  try {
+    const curated = await pool.query(
+      `SELECT results FROM curated_results WHERE query_hash = $1 LIMIT 1`,
+      [createHash("md5").update(normalizedQuery).digest("hex")]
+    );
+    if (curated.rows.length > 0) {
+      const curatedResults = curated.rows[0].results as Result[];
+      const slug = await persistSearch(query, category, curatedResults);
+      return NextResponse.json({ result: curatedResults.map(r => `${r.rank}. **${r.name}** — ${r.description}`).join("\n"), results: curatedResults, cached: false, curated: true, slug });
+    }
+  } catch { /* non-fatal */ }
+
+  // ── 2. Cache check ──────────────────────────────────────────────────────────
+  const cacheKey = `${normalizedQuery}__${limit}`;
   const queryHash = createHash("md5").update(cacheKey).digest("hex");
 
   try {

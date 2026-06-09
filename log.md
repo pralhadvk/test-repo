@@ -18,6 +18,18 @@ Parse last 10 entries: `grep "^## \[" log.md | tail -10`
 
 ---
 
+## [2026-06-09] build | Phase 4 complete — Defensibility shipped
+
+- **4.1 Browser Extension**: Manifest V3 Chrome extension in `extension/` folder. Context menu "3C Search this" + popup mini UI with category selector, results, recent searches. Load unpacked to test.
+- **4.2 Public API**: `POST /api/v1/search` with `Bearer sk_3c_...` auth. `api_keys` table + key generation. `/developer` page with full docs, cURL/JS examples, live key generator.
+- **4.3 Curated Verticals**: `curated_results` table with 7 seeded queries (Hyderabad restaurants + Tech tools). Search API checks curated first — human-verified results override AI. Returns `"curated": true` flag.
+- **4.4 Analytics Dashboard**: `/admin?secret=...` page with 8 KPI cards, 7-day area chart, category pie chart, top queries bar chart, affiliate clicks chart, curated verticals status.
+- Navbar updated with API link.
+- 23/25 Phase 4 tasks completed; 2 todo (city expansion, email digest).
+- Vault: all Phase 4 notes updated.
+
+---
+
 ## [2026-06-09] build | Phase 3 complete — Monetization shipped
 
 - **3.1 Category Modes**: CategorySelector UI (5 pills) on homepage; enhanced per-category prompts (food/travel/tech/finance/entertainment); dynamic placeholder; category filter on /trending

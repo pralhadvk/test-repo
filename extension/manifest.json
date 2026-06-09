@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "3C Search",
+  "description": "Get top 3 AI-curated results for anything you select — right-click any text to search.",
+  "version": "1.0.0",
+  "permissions": ["contextMenus", "tabs", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "3C Search"
+  },
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
