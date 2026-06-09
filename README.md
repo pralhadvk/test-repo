@@ -2,7 +2,7 @@
 
 > AI-powered ranked search with categories, virality, monetization, and a data moat. Built for YC.
 
-**Live app:** https://test-repo-seven-lyart.vercel.app
+**Live app:** https://top3-search.vercel.app
 
 ---
 

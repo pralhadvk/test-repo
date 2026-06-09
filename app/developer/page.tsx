@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 type ApiKey = { id: string; key: string; label: string; rate_limit: number; created_at: string };
 
-const CODE_EXAMPLE = `curl -X POST https://test-repo-seven-lyart.vercel.app/api/v1/search \\
+const CODE_EXAMPLE = `curl -X POST https://top3-search.vercel.app/api/v1/search \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"query": "best coffee in Berlin", "category": "food"}'`;
@@ -20,7 +20,7 @@ const CODE_RESPONSE = `{
   "usage": { "queries_total": 1, "rate_limit": 100 }
 }`;
 
-const JS_EXAMPLE = `const res = await fetch("https://test-repo-seven-lyart.vercel.app/api/v1/search", {
+const JS_EXAMPLE = `const res = await fetch("https://top3-search.vercel.app/api/v1/search", {
   method: "POST",
   headers: {
     "Authorization": "Bearer YOUR_API_KEY",

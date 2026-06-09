@@ -1,4 +1,4 @@
-const BASE_URL = "https://test-repo-seven-lyart.vercel.app";
+const BASE_URL = "https://top3-search.vercel.app";
 
 // Create context menu on install
 chrome.runtime.onInstalled.addListener(() => {
