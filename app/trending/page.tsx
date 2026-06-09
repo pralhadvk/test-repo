@@ -1,7 +1,7 @@
 import pool from "@/lib/db";
 import TrendingClient from "./TrendingClient";
 
-export const revalidate = 300; // refresh every 5 min
+export const dynamic = "force-dynamic";
 
 type TrendRow = { query: string; count: number; category: string | null };
 

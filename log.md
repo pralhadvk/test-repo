@@ -18,6 +18,17 @@ Parse last 10 entries: `grep "^## \[" log.md | tail -10`
 
 ---
 
+## [2026-06-09] build | Phase 3 complete — Monetization shipped
+
+- **3.1 Category Modes**: CategorySelector UI (5 pills) on homepage; enhanced per-category prompts (food/travel/tech/finance/entertainment); dynamic placeholder; category filter on /trending
+- **3.2 Affiliate Links**: Inline buttons on result cards (Yelp/Maps, Booking/Travel, GitHub/npm, JustWatch/IMDb); `affiliate_clicks` table; `POST /api/affiliate-click` tracking; Booking.com aid placeholder ready
+- **3.3 Pro Tier**: `/pricing` page (free vs $9/mo); Stripe checkout + webhook (`/api/stripe/checkout`, `/api/stripe/webhook`); 10/day free limit via localStorage dot tracker; UpgradeModal; top 5 results for Pro; CSV export; Pro badge
+- stripe package installed; `affiliate_clicks` table created in Neon
+- 18/19 Phase 3 tasks `completed`, 1 `review` (affiliate signup pending)
+- Vault: Overview, 3.1, 3.2, 3.3, index.md, log.md updated
+
+---
+
 ## [2026-06-06] build | Phase 2 complete — Virality shipped
 
 - **2.1 Shareable Result Pages**: Every search has a public `/s/[slug]` page with OG image (1200×630), Twitter + WhatsApp share buttons, clipboard copy. API now returns `slug` on every response.

@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 type TrendRow = { query: string; count: number; category: string | null };
+
+const ALL_CATS = ["food", "travel", "tech", "finance", "entertainment"];
+const CAT_ICONS: Record<string, string> = { food: "🍕", travel: "✈️", tech: "💻", finance: "💰", entertainment: "🎬" };
 
 const CAT_COLOR: Record<string, string> = {
   food:          "bg-orange-500/20 text-orange-400 border-orange-500/30",
@@ -31,6 +35,12 @@ export default function TrendingClient({
   maxCount: number;
 }) {
   const router = useRouter();
+  const [catFilter, setCatFilter] = useState<string | null>(null);
+
+  const filtered = catFilter
+    ? trending.filter(r => r.category === catFilter)
+    : trending;
+  const filteredMax = filtered[0]?.count ?? 1;
 
   function search(query: string) {
     router.push(`/?q=${encodeURIComponent(query)}`);
@@ -56,6 +66,20 @@ export default function TrendingClient({
           <p className="text-slate-500 text-sm">What people are searching right now</p>
         </div>
 
+        {/* Category filter pills */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          <button onClick={() => setCatFilter(null)}
+            className={`text-xs px-3 py-1.5 rounded-full border transition-all ${!catFilter ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/10 text-slate-500 hover:text-white"}`}>
+            All
+          </button>
+          {ALL_CATS.map(c => (
+            <button key={c} onClick={() => setCatFilter(catFilter === c ? null : c)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${catFilter === c ? "bg-blue-600/20 border-blue-500/40 text-blue-300" : "bg-white/5 border-white/10 text-slate-500 hover:text-white"}`}>
+              {CAT_ICONS[c]} {c}
+            </button>
+          ))}
+        </div>
+
         {/* Period tabs */}
         <div className="flex gap-2 mb-8 bg-white/[0.03] border border-white/10 rounded-2xl p-1.5 w-fit">
           {PERIODS.map(p => (
@@ -71,7 +95,7 @@ export default function TrendingClient({
         </div>
 
         {/* Trending list */}
-        {trending.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-10 text-center">
             <p className="text-slate-500 text-sm mb-3">No searches yet for this period.</p>
             <Link href="/" className="text-blue-400 hover:text-blue-300 text-sm transition-colors">
@@ -80,8 +104,8 @@ export default function TrendingClient({
           </div>
         ) : (
           <div className="space-y-3">
-            {trending.map((row, idx) => {
-              const barWidth = Math.max(4, Math.round((row.count / maxCount) * 100));
+            {filtered.map((row, idx) => {
+              const barWidth = Math.max(4, Math.round((row.count / filteredMax) * 100));
               return (
                 <div key={`${row.query}-${idx}`}
                   onClick={() => search(row.query)}
@@ -137,7 +161,7 @@ export default function TrendingClient({
         )}
 
         {/* Footer note */}
-        {trending.length > 0 && (
+        {filtered.length > 0 && (
           <p className="text-center text-slate-700 text-xs mt-8">
             Click any query to search it instantly
           </p>

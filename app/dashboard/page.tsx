@@ -1,7 +1,7 @@
 import pool from "@/lib/db";
 import DashboardClient from "./DashboardClient";
 
-export const revalidate = 30; // refresh every 30s
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   // Recent searches (anonymous until Clerk auth is wired up)

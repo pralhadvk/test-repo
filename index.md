@@ -60,10 +60,10 @@ SORT phase ASC
 
 | Page | Status | Priority |
 |------|--------|----------|
-| [[03 - Phase 3 Monetization/Overview]] | `todo` | — |
-| [[03 - Phase 3 Monetization/3.1 Category Modes]] | `todo` | high |
-| [[03 - Phase 3 Monetization/3.2 Affiliate Links]] | `todo` | high |
-| [[03 - Phase 3 Monetization/3.3 Pro Tier]] | `todo` | high |
+| [[03 - Phase 3 Monetization/Overview]] | `in_progress` | — |
+| [[03 - Phase 3 Monetization/3.1 Category Modes]] | `completed` | high |
+| [[03 - Phase 3 Monetization/3.2 Affiliate Links]] | `completed` | high |
+| [[03 - Phase 3 Monetization/3.3 Pro Tier]] | `completed` | high |
 
 ---
 
