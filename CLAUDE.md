@@ -14,6 +14,26 @@ Source documents go in `raw/`. The wiki sits above them — synthesized, cross-r
 
 ---
 
+## How to Work Here (always)
+
+These behavioral rules apply to all work in this repo — wiki edits and app code alike. They supersede the standalone `rules.md` (which can be retired).
+
+**1. Think before coding.** State assumptions explicitly; if uncertain, ask. If multiple interpretations exist, present them — don't pick silently. If a simpler approach exists, say so.
+
+**2. Simplicity first.** Minimum that solves the problem. No features beyond what was asked, no abstractions for single-use code, no speculative flexibility, no error handling for impossible cases. If 200 lines could be 50, rewrite. Test: "Would a senior engineer call this overcomplicated?"
+
+**3. Surgical changes.** Touch only what the request requires. Match existing style. Don't refactor working code or "improve" adjacent lines. Remove only the orphans *your* change created; mention pre-existing dead code, don't delete it. Every changed line should trace to the request.
+
+**4. Goal-driven execution.** Turn the task into a verifiable check (a test or command), then loop until it passes. Weak criteria ("make it work") need constant clarification; strong ones let you finish independently.
+
+### Before a big or risky change
+Stress-test the plan before building it: run `/grill-me`, or `/grill-with-docs` to also capture the resulting decisions. Don't implement on top of an unexamined plan.
+
+### Keep docs current
+After any change that alters purpose, scope, contracts, structure, or rules, update the affected pages (this file, `index.md`, the relevant section page) per the Operations rules below. Delete stale or contradictory lines immediately — these docs are living contracts, not changelogs.
+
+---
+
 ## Folder Structure
 
 ```
